@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 Upload file to print
+  form(id='form', method='post', enctype='multipart/form-data')
+    p File will be printed with <strong>lp</strong> using the following options
+    label
+      textarea(name='options', cols=60, rows=10).
+        fitplot
+        page-left=37
+        page-bottom=200
+      br
+    label
+      input(id='file', name='file', type='file')
+      br
+    input(type='submit')
+
+  script()
+    var $ = document.getElementById.bind(document)
+    $('file').addEventListener('change', function() {
+      $('form').submit()
+    })
